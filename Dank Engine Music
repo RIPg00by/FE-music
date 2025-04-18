@@ -1,0 +1,29 @@
+--Dank Engine
+
+-- FE script
+local function placeScriptInService()
+    local scriptClone = script:Clone()
+    scriptClone.Parent = game:GetService("ServerScriptService")
+    print("Script has been moved to ServerScriptService.")
+end
+
+placeScriptInService()
+
+-- Function to play music globally with distortion effect
+local function playMusic()
+    local music = Instance.new("Sound")
+    music.SoundId = "rbxassetid://107660749733264" -- Updated sound ID
+    music.Looped = true
+    music.Volume = 10
+    music.Pitch = 0.23
+    music.Parent = game.Workspace
+    
+    -- Adding the DistortionSoundEffect
+    local distortion = Instance.new("DistortionSoundEffect")
+    distortion.Level = 0.95 -- Set the distortion level
+    distortion.Parent = music
+    
+    music:Play()
+end
+
+playMusic()
